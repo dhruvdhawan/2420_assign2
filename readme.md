@@ -1,3 +1,4 @@
+# 2420_AS2
 <h2>STEP ONE: CREATING DO INFRASTRUCTURE</h2>
 
 <h3>Step 1: Open Digital Ocean and create a new project</h3>
@@ -7,9 +8,9 @@
 <img src="Screenshots/2.png" width="800" />
 
 <h3>Step 4: Go back to your project and Click on Get Started with a Droplet</h3>
-<img src="Screenshots/3.png" width="800" />
 
 <h3>Step 5: Select Ubuntu, choose your plan, Select the same data centre as your VPC, Select the VPC you just made, create two droplets and give them names, and then click Create Droplet</h3>
+<img src="Screenshots/3.png" width="800" />
 <img src="Screenshots/4.png" width="800" />
 <img src="Screenshots/5.png" width="800" />
 
@@ -35,4 +36,3 @@
 
 <b><h2>Your DO infrastructure is Complete</h2></b>
 
-# 2420_AS2
