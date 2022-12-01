@@ -49,12 +49,10 @@
 <img src="Screenshots_S2/3.png" width="800" />
 <h3>Step 5: Run this so only the user can login via ssh on your droplet</h3> 
 <pre><code>rsync --archive --chown=USERNAME:USERNAME ~/.ssh /home/USERNAME</code></pre>
-<img src="Screenshots_S2/5.png" width="800" />
 Now login to your regular user and run
 <pre><code>sudo vi /etc/ssh/sshd_config</code></pre>
 <img src="Screenshots_S2/5.png" width="800" />
 Change PermitRootLogin from yes to no
 <img src="Screenshots_S2/6.png" width="800" />
 <h3>Step 6: Repeat the same steps with other droplet with same username and password for convienence</h3> 
-
-
+<h2>Step Two is complete</h2>
