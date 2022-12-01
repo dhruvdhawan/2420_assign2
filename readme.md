@@ -36,3 +36,25 @@
 
 <b><h2>Your DO infrastructure is Complete</h2></b>
 
+<h2>STEP TWO: CREATING REGULAR USERS IN DROPLETS</h2>
+<h3>Step 1: SSH as root into one of your droplet</h3>
+<h3>Step 2: Create a new user</h3> 
+<pre><code>useradd -ms /bin/bash USERNAME</code></pre>
+<img src="Screenshots_S2/1.png" width="800" />
+<h3>Step 3: Give this user root access</h3> 
+<pre><code>usermod -aG sudo USERNAME</code></pre>
+<img src="Screenshots_S2/2.png" width="800" />
+<h3>Step 4: Give this user a password</h3> 
+<pre><code>passwd USERNAME</code></pre>
+<img src="Screenshots_S2/3.png" width="800" />
+<h3>Step 5: Run this so only the user can login via ssh on your droplet</h3> 
+<pre><code>rsync --archive --chown=USERNAME:USERNAME ~/.ssh /home/USERNAME</code></pre>
+<img src="Screenshots_S2/5.png" width="800" />
+Now login to your regular user and run
+<pre><code>sudo vi /etc/ssh/sshd_config</code></pre>
+<img src="Screenshots_S2/5.png" width="800" />
+Change PermitRootLogin from yes to no
+<img src="Screenshots_S2/6.png" width="800" />
+<h3>Step 6: Repeat the same steps with other droplet with same username and password for convienence</h3> 
+
+
