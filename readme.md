@@ -56,3 +56,23 @@ Change PermitRootLogin from yes to no
 <img src="Screenshots_S2/6.png" width="800" />
 <h3>Step 6: Repeat the same steps with other droplet with same username and password for convienence</h3> 
 <h2>Step Two is complete</h2>
+<h2>STEP THREE: INSTALLING NGINX</h2>
+<h3>Use this commnad to install nginx on both of your droplets. Follow On screen instructions</h3>
+<pre><code>sudo apt install nginx</code></pre>
+<img src="Screenshots_S2/7.png" width="800" />
+<h2>You successfully install nginx server</h2>
+<h2>STEP FOUR: SETTING UP WSL</h2>
+<h3>Step 1:Make a new directory and then make two directories named html and src inside this directory.</h3>
+<img src="Screenshots_S2/8.png" width="800" />
+<h3>Step 2: Create a html file index.html inside the html folder and code it with HTML so it outputs "Hello World!"</h3>
+<img src="Screenshots_S2/9.png" width="800" />
+<h3>Step 3: Cd into src folder and run the following commands</h3>
+<pre><code>npm init</code></pre>
+<pre><code>npm i fastify</code></pre>
+
+
+
+
+
+
+
