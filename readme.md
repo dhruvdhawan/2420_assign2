@@ -187,9 +187,14 @@ sudo cp Caddyfile /etc/caddy
 sudo cp caddy.service /etc/systemd/system/caddy.service
 sudo cp test_hello.service /etc/systemd/system/test_hello.service
 sudo cp index.html /var/www/index.html</code></pre>
-<h3></h3>
+<h3>Enable and Start Caddy and your service file</h3>
 
+<pre><code>systemctl enable caddy.service
+systemctl start caddy.service
 
+systemctl enable test_hello.service
+systemctl start test_hello.service
+</code></pre>
 
 
 
