@@ -167,6 +167,21 @@ WantedBy=multi-user.target
 </code></pre>
 <h3>Replace dhruv with your username</h3>
 
+<h2>Step Seven: Moving files into your droplet</h2>
+<h3>Step 1: connect to the droplet via sftp</h3>
+<pre><code>sftp dhruv@147.182.226.231</code></pre>
+<h3>Move your caddy.service and Caddyfile to your droplets</h3>
+<h3>Step 2: move your caddyfile and caddy.servive to appropriate location</h3>
+<pre><code>sudo mkdir /etc/caddy
+sudo mkdir /var/www
+
+sudo mv Caddyfile /etc/caddy
+sudo mv caddy.service /etc/systemd/system/caddy.service
+sudo mv test_hellogg.service /etc/systemd/system/hello_web.service
+sudo mv index.html /var/www/index.html</code></pre>
+<h3></h3>
+
+
 
 
 
