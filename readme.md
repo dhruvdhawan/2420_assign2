@@ -90,22 +90,29 @@ Repeat this in your other droplet
 <h3>Step 5: Edit your index.js file and put the following code in it</h3>
 <pre><code>// Require the framework and instantiate it
 const fastify = require('fastify')({ logger: true })
+const fs = require('fs')
 
 // Declare a route
-fastify.get('/', async (request, reply) => {
-  return { hello: 'Server x' }
+fastify.get('/api', async (request, reply) => {
+          return { hello: 'Server X' }
 })
 
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen({ port: 3000 })
+    await fastify.listen({ port: 5050 })
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
   }
 }
-start()</code></pre>
+start()
+
+
+
+
+
+</code></pre>
 <h3>This is a code for a basic Web server</h3>
 <h3>Step 6: Run your server to test it</h3>
 <pre><code>node index.js</code></pre>
@@ -172,13 +179,14 @@ WantedBy=multi-user.target
 <pre><code>sftp dhruv@147.182.226.231</code></pre>
 <h3>Move your caddy.service and Caddyfile to your droplets</h3>
 <h3>Step 2: move your caddyfile and caddy.servive to appropriate location</h3>
+
 <pre><code>sudo mkdir /etc/caddy
 sudo mkdir /var/www
 
-sudo mv Caddyfile /etc/caddy
-sudo mv caddy.service /etc/systemd/system/caddy.service
-sudo mv test_hellogg.service /etc/systemd/system/hello_web.service
-sudo mv index.html /var/www/index.html</code></pre>
+sudo cp Caddyfile /etc/caddy
+sudo cp caddy.service /etc/systemd/system/caddy.service
+sudo cp test_hello.service /etc/systemd/system/test_hello.service
+sudo cp index.html /var/www/index.html</code></pre>
 <h3></h3>
 
 
