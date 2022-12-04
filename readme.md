@@ -72,6 +72,7 @@ Change PermitRootLogin from yes to no
 <img src="Screenshots_S2/13.png" width="800" />
 <h3>Update</h3>
 <pre><code>Sudo apt update && sudo apt upgrade</code></pre>
+Repeat this in your other droplet
 <h2>You successfully install Caddy server</h2>
 
 <h2>STEP FOUR: SETTING UP WSL</h2>
@@ -80,6 +81,9 @@ Change PermitRootLogin from yes to no
 <h3>Step 2: Create a html file index.html inside the html folder and code it with HTML so it outputs "Hello World!"</h3>
 <img src="Screenshots_S2/9.png" width="800" />
 <h3>Step 3: Go to https://volta.sh/ and install node using volta</h3>
+<h3>Run this so linux knows where Volta is Installed</h3>
+<pre><code>source ~/.bashrc</code></pre>
+
 <h3>Step 4: Cd into src folder and run the following commands</h3>
 <pre><code>npm init</code></pre>
 <pre><code>npm i fastify</code></pre>
@@ -106,9 +110,62 @@ start()</code></pre>
 <h3>Step 6: Run your server to test it</h3>
 <pre><code>node index.js</code></pre>
 <img src="Screenshots_S2/10.png" width="800" />
+<h3>Step : sftp your html and src directory to your droplets</h3>
+<pre><code>node index.js</code></pre>
+<img src="Screenshots_S2/10.png" width="800" />
+
+<h2>Step five: Writing caddy file on your WSL</h2>
+<h3>Step:1 Create Caddy File</h3>
+<pre><code>vim Caddyfile</code></pre>
+<pre><code>http://[IP Address of your VPC] {
+        root * /var/www
+        reverse_proxy /api localhost:5050
+        file_server
+}</code></pre>
+<h3>Step:2 Caddy Service File</h3>
+<pre><code>vim caddy.service</code></pre>
+<pre><code>[Unit]
+Description=2420 Assignment 2
+After=network.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
+ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile --force
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h2>Step Six: Installing Volta on Droplets</h2>
+<h3>Step 1: Go to https://volta.sh/ and install node using volta</h3>
+<h3>Run this so linux knows where Volta is Installed</h3>
+<pre><code>source ~/.bashrc</code></pre>
+<h3>Do this in both of your Droplet</h3>
+
+<h2>Step Seven: Writing Service file to start your node application</h2>
+<h3>Step 1: Create a new file</h3>
+<pre><code>vim test_hello.services</code></pre>
+<pre><code>[Unit]
+Description=Service file for 2420
+After=network.target
+
+[Service]
+User=dhruv
+Group=dhruv
+Type=notify
+ExecStart=/home/dhruv/.volta/bin/node /home/dhruv/assignment/src/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
 
 
 
+
+</code></pre>
+<h3>Replace dhruv with your username</h3>
 
 
 
